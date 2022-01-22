@@ -8,7 +8,8 @@
     --cyan: hsl(176, 50%, 47%);
     --darkcyan: hsl(176, 72%, 28%);
     --black: hsl(0, 0%, 0%);
-    --darkgray: hsl(0, 0%, 48%);
+    --darkgray: rgb(122, 122, 122);
+    --darkgrayopacity: rgba(0, 0, 0, 0.5);
     --modgray: hsl(0, 0%, 60%);
     --gray: hsl(0, 0%, 73%);
     --lightgray: hsl(0, 0%, 97%);
@@ -19,6 +20,14 @@
     font-family: 'Commissioner', sans-serif;
     margin: 0px;
     padding: 0px;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
 
 .container {
@@ -96,8 +105,8 @@
     color: var(--white);
     background: var(--cyan);
     padding: 16px 40px;
-    font-weight: 700;
     height: 50px;
+    font-weight: 700;
     border-radius: 30px;
     border: none;
     font-size: var(--body);
@@ -193,7 +202,7 @@
     padding-left: 40px;
 }
 .statistics .values div:not(:last-child) {
-    border-right: 2px solid var(--lightgray);
+    border-right: 1px solid var(--lightgray);
 }
 .statistics .values div span {
     font-size: var(--body);
@@ -258,7 +267,7 @@
     margin-bottom: 30px;
 }
 .itemlist .item.invalid {
-    border: 2px solid var(--lightgray);
+    border: 1px solid var(--lightgray);
 }
 .itemlist .item .item-header {
     display: flex;
@@ -310,4 +319,164 @@
 .itemlist .item .item-footer .numbers span:last-child {
     color: var(--modgray);
     margin-left: 7px;
+}
+
+
+
+.modal {
+    width: 100%;
+    height: 100%;
+    background: var(--darkgrayopacity);
+    position: fixed;
+	overflow-y: auto;
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.modal-container {
+    margin: 182px auto;
+    padding: 50px;
+    border-radius: 20px;
+    width: 60%;
+    background: var(--white);
+    position: relative;
+    box-sizing: border-box;
+    z-index: 2;
+}
+.modal-container.small {
+    padding: 50px 40px;
+    width: 35%;
+}
+.modal-content {
+
+}
+.modal-content.center {
+    text-align: center;
+}
+.modal-header {
+
+}
+.modal-header .title,
+.modal-body-description .title {
+    font-size: var(--title-2);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.modal-header .description,
+.modal-body-description .description {
+    font-size: var(--body);
+    color: var(--modgray);
+    line-height: 28px;
+    margin-bottom: 30px;
+}
+.modal .close {
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    cursor: pointer;
+}
+.modal-body {
+
+}
+.modal-body-list {
+    display: flex;
+    flex-direction: column;
+}
+.modal-body-list .item {
+    border-radius: 20px;
+    border: 1px solid var(--gray);
+}
+.modal-body-list .item:not(:last-child) {
+    margin-bottom: 30px;
+}
+.modal-body-list .item.invalid {
+    border: 1px solid var(--lightgray);
+}
+.modal-body-list .item-body {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: row;
+}
+.modal-body-list .item-radio {
+    
+}
+.modal-body-list .item-radio-selection .item-radio-selection-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.modal-body-list .item-radio-selection .title {
+    font-size: var(--body);
+    font-weight: 700;
+}
+.modal-body-list .item-radio-selection .title span {
+    color: var(--cyan);
+    margin-left: 12px;
+}
+.modal-body-list .item-radio-selection .numbers {
+    font-weight: 700;
+    display: flex;
+    align-items: flex-start;
+}
+.modal-body-list .item-radio-selection .numbers span {
+    color: var(--modgray);
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 6px;
+}
+.modal-body-list .item-radio-selection .description {
+    font-size: var(--body);
+    color: var(--darkgray);
+    line-height: 26px;
+}
+.modal-body-list .item-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--gray);
+    padding: 20px;
+}
+.modal-body-list .item-footer .item-footer-description {
+    color: var(--darkgray);
+    font-weight: 500;
+}
+.modal-body-list .item-footer .item-footer-form {
+
+}
+.modal-body-list .item-footer .item-footer-form .pledge {
+    border: 1px solid var(--modgray);
+    border-radius: 30px;
+    width: 80px;
+    padding: 16px 5px;
+    text-align: center;
+    position: relative;
+}
+.modal-body-list .item-footer .item-footer-form .pledge::before {
+    content: '$';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--modgray);
+    border: 1px solid #000;
+}
+.modal-body-list .item-footer .button {
+    
+}
+.modal-body-icon {
+    margin-bottom: 40px;
+}
+.modal-body-description {
+
+}
+.modal-footer {
+
+}
+.modal-footer .button {
+    font-size: 12px;
+    padding: 10px 25px;
+    height: 40px;
 }
