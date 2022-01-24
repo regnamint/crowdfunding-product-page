@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
     var backthisprojectmodal = document.getElementById('backthisproject');
 
     successmodal.classList.add("hide");
-    backthisprojectmodal.classList.add("show");
+    backthisprojectmodal.classList.add("hide");
 
     backthisprojectbutton.addEventListener('click', function() {
         backthisprojectmodal.classList.remove("hide");
@@ -29,4 +29,14 @@ window.addEventListener('load', function() {
         }
     })
     
+    document.querySelectorAll('.continue').forEach(el => {
+        console.log("hi")
+        el.addEventListener('click', function (e) {
+            
+            backthisprojectmodal.classList.add("hide");
+            successmodal.classList.remove("hide");
+            successmodal.classList.add("show");
+        })
+    })    
+
 })
