@@ -376,10 +376,11 @@
     flex-direction: row;
     justify-content: space-between;
 }
-.itemlist .item .item-footer .numbers {
+.itemlist .item .item-footer .numbers .number {
     display: flex;
     flex-direction: row;
     align-items: center;
+    color: black;
 }
 .itemlist .item .item-footer .numbers span:first-child {
     font-size: var(--title-1);
@@ -510,7 +511,7 @@
 	-webkit-transition: border .25s linear;
 }
 .modal-body-list .item-radio:hover .radio {
-  border: 1px solid var(--cyan);
+    border: 1px solid var(--cyan);
 }
 .modal-body-list .item.invalid .item-radio:hover .radio {
     border: 1px solid var(--lightcyan);
@@ -529,13 +530,10 @@
 	-webkit-transition: background 0.25s linear;
 }
 .modal-body-list .item-radio input[type='radio']:checked ~ .radio {
-  border: 1px solid var(--cyan);
+    border: 1px solid var(--cyan);
 }
 .modal-body-list .item-radio input[type='radio']:checked ~ .radio::before{
-  background: var(--cyan);
-}
-.modal-body-list .item-radio input[type='radio']:checked ~ label{
-  color: var(--cyan);
+    background: var(--cyan);
 }
 .modal-body-list .item-radio input[type='radio']:checked ~ label .item-footer {
     display: flex;
@@ -553,28 +551,46 @@
     font-size: var(--body);
     font-weight: 700;
 }
-.modal-body-list .item-radio-selection .title span {
+.modal-body-list .item-radio-selection .title span:not(.title) {
     color: var(--cyan);
     margin-left: 12px;
+    font-weight: 500;
 }
 .modal-body-list .item.invalid .item-radio-selection .title span {
     color: var(--lightcyan);
 }
-.modal-body-list .item-radio-selection .numbers {
-    font-weight: 700;
-    display: flex;
+.modal-body-list .item-radio-selection .numbers,
+.modal-body-list .mobile-numbers {
     align-items: flex-start;
-}
-.modal-body-list .item.invalid .item-radio-selection .numbers {
-    color: var(--darkgray);
-}
-.modal-body-list .item-radio-selection .numbers span {
     color: var(--modgray);
     font-weight: 500;
     font-size: 14px;
+}
+.modal-body-list .item-radio-selection .numbers {
+    display: flex;
+}
+.modal-body-list .mobile-numbers {
+    display: none;
+}
+.modal-body-list .mobile-numbers {
+    margin-top: 12px;
+}
+.modal-body-list .item-radio-selection .numbers .number,
+.modal-body-list .mobile-numbers .mobile-number {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+.modal-body-list .item-radio-selection .numbers :last-child,
+.modal-body-list .mobile-numbers :last-child {
     margin-left: 6px;
 }
-.modal-body-list .item.invalid .item-radio-selection .numbers span {
+.modal-body-list .item.invalid .item-radio-selection .numbers,
+.modal-body-list .item.invalid .mobile-numbers {
+    color: var(--darkgray);
+}
+.modal-body-list .item.invalid .item-radio-selection .numbers span,
+.modal-body-list .item.invalid .mobile-numbers span {
     color: var(--gray);
 }
 .modal-body-list .item-radio-selection .description {
@@ -683,26 +699,6 @@
     .modal-container.small {
         width: 60%;
     }
-    .modal-body-list .item-radio-selection .item-radio-selection-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .modal-body-list .item-radio-selection .title {
-        flex-direction: column;
-        margin-bottom: 12px;
-    }
-    .modal-body-list .item-radio-selection .title span {
-        margin-left: 0px;
-        margin-top: 12px;
-    }
-    .modal-body-list .item-footer {
-        flex-direction: column;
-    }
-    .modal-body-list .item-footer .item-footer-description {
-        margin-bottom: 12px;
-    }
-    .modal-body-list .item-footer .item-footer-form {
-    }
 }
 
 @media only screen and (max-width: 750px) {
@@ -761,8 +757,38 @@
     .itemlist .item .item-footer .numbers {
         margin-bottom: 20px;
     }
+    .modal-body-list .item-radio-selection .item-radio-selection-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .modal-body-list .item-radio-selection .title {
+        flex-direction: column;
+        margin-bottom: 12px;
+    }
+    .modal-body-list .item-radio-selection .title span:not(.title) {
+        margin-left: 0px;
+    }
+    .modal-body-list .item-radio-selection .title span {
+        margin-left: 0px;
+        margin-top: 12px;
+    }
+    .modal-body-list .item-footer {
+        flex-direction: column;
+    }
+    .modal-body-list .item-footer .item-footer-description {
+        margin-bottom: 12px;
+    }
     .modal-container.small {
         width: 90%;
+    }
+    .modal-body-list .item-radio-selection .numbers {
+        display: none;
+    }
+    .modal-body-list .mobile-numbers {
+        display: flex;
+    }
+    .modal-body-list .item-radio .item-radio-selection-header {
+        margin-bottom: 10px;
     }
 }
 
@@ -772,9 +798,11 @@
     }
     .modal-body-list .item-radio .item-body {
         margin-left: 0px;
-        margin-top: 50px;
+        margin-top: 0px;
     }
-
+    .modal-body-list .item-radio .item-radio-selection-header {
+        margin-left: 50px;
+    }
     .modal-body-list .item-footer .item-footer-form .form-group {
         width: 60px;
         margin-right: 10px;

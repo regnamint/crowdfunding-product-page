@@ -83,10 +83,23 @@ window.addEventListener('load', function() {
                 document.getElementById(this.value).checked = false;
             }else{
                 document.getElementById(this.value).checked = true;
+                document.getElementById(this.value).parentNode.parentNode.style.borderColor = '#147b74'
             }
             console.log(this.value)
             backthisprojectmodal.classList.remove("hide");
             backthisprojectmodal.classList.add("show");
+        })
+    })
+
+    document.querySelectorAll('input[name="project"]').forEach(el => {
+        el.addEventListener('click', function (e) {
+            document.querySelectorAll('.item').forEach(item => {
+                item.style.borderColor = 'hsl(0, 0%, 73%)'
+            })
+            if(this.checked) {
+                var parent = el.parentNode.parentNode
+                parent.style.borderColor = '#147b74'
+            }
         })
     })
     
@@ -107,7 +120,11 @@ window.addEventListener('load', function() {
             }else{
                 var thispledge = formgroup.getElementsByClassName('pledge')[0].id;
                 var reward = formgroup.getElementsByClassName('pledge')[0].value;
-    
+                var currentchecked = document.querySelector('input[name="project"]:checked');
+                var currentnumber = currentchecked.parentNode.getElementsByClassName('number')[0];
+                var currentmobilenumber = currentchecked.parentNode.getElementsByClassName('mobile-number')[0];
+                var currentnumberleft = currentnumber.innerHTML;
+
                 var pass = false;
                 if (thispledge == 'pledge2') {
                     //25
@@ -153,6 +170,11 @@ window.addEventListener('load', function() {
                     console.log(totalpledgenum)
                     totalpledge.innerHTML = totalpledgenum;
                     frontbar.style.width = ((parseInt(totalpledgenum.replace(/[^0-9]/g, '')) / 100000) * 100)+'%';
+
+                    currentnumberleft = parseInt(currentnumberleft)-1;
+                    currentnumber.innerHTML = currentnumberleft;
+                    currentmobilenumber.innerHTML = currentnumberleft;
+                    document.getElementById(currentchecked.value+'-number').innerHTML = currentnumberleft
                 } else {
                     formgroup.getElementsByClassName('pledge')[0].style.borderColor = "red";
                 }
