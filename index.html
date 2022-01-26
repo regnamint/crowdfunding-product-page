@@ -62,9 +62,9 @@
   
       <div class="statistics content">
         <div class="values">
-          <div>$89,914<br><span>of $100,000 backed</span></div>
-          <div>5,007<br><span>total backers</span></div>
-          <div>56<br><span>days left</span></div>
+          <div><span id="totalpledge">$89,914</span><br>of $100,000 backed</div>
+          <div><span id="totalbackers">5,007</span><br>total backers</div>
+          <div><span>56</span><br>days left</div>
         </div>
         <div class="numberbar">
           <div class="frontbar">&nbsp;</div>
@@ -107,7 +107,7 @@
                 <span>left</span>
               </div>
               <div class="buttons">
-                <button type="button" class="button">Select Reward</button>
+                <button type="button" class="button selectbtn" value="bamboostand">Select Reward</button>
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@
                 <span>left</span>
               </div>
               <div class="buttons">
-                <button type="button" class="button">Select Reward</button>
+                <button type="button" class="button selectbtn" value="blackeditionstand">Select Reward</button>
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@
                 <span>left</span>
               </div>
               <div class="buttons">
-                <button type="button" class="button invalid">Out of Stock</button>
+                <button type="button" class="button selectbtn invalid" value="mahoganyspecialedition">Select Reward</button>
               </div>
             </div>
           </div>
@@ -199,6 +199,11 @@
                       </span>
                     </span>
                   </span>
+                  <span class="item-footer" style="justify-content: flex-end;">
+                    <span class="item-footer-form">
+                      <button type="button" class="button continue">Continue</button>
+                    </span>
+                  </span>
                 </label>
                 <div class="radio"></div>
               </div>
@@ -229,7 +234,7 @@
                     <span class="item-footer-form">
                       <div class="form-group">
                         <span class="form-group-icon">$</span>
-                        <input id="pledge2" type="text" class="pledge" value="25" />
+                        <input id="pledge2" type="number" class="pledge" value="25" />
                       </div>
                       <button type="button" class="button continue">Continue</button>
                     </span>
@@ -264,7 +269,7 @@
                     <div class="item-footer-form">
                       <div class="form-group">
                         <span class="form-group-icon">$</span>
-                        <input id="pledge3" type="text" class="pledge" value="75" />
+                        <input id="pledge3" type="number" class="pledge" value="75" />
                       </div>
                       <button type="button" class="button continue">Continue</button>
                     </div>
@@ -275,7 +280,7 @@
             </div>
             <div class="item invalid">
               <div class="item-radio">
-                <input id="mahoganyspecialedition" type="radio" name="project" value="mahoganyspecialedition"/>
+                <input id="mahoganyspecialedition" type="radio" name="project" value="mahoganyspecialedition" disabled="true"/>
                 <label for="mahoganyspecialedition">
                   <span class="item-body">
                     <span class="item-radio-selection">
@@ -298,7 +303,7 @@
                     </div>
                     <div class="item-footer-form">
                       <div class="form-group">
-                        <span class="form-group-icon">$</span><input id="pledge4" type="text" class="pledge" value="200" readonly />
+                        <span class="form-group-icon">$</span><input id="pledge4" type="number" class="pledge" value="200" readonly />
                       </div>
                       <button type="button" class="button continue">Continue</button>
                     </div>
