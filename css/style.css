@@ -765,3 +765,26 @@
         width: 90%;
     }
 }
+
+@media only screen and (max-width: 468px) {
+    .button {
+        padding: 16px 20px;
+    }
+    .modal-body-list .item-radio .item-body {
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+
+    .modal-body-list .item-footer .item-footer-form .form-group {
+        width: 60px;
+        margin-right: 10px;
+    }
+    .modal-body-list .item-footer .item-footer-form .form-group-icon {
+        top: 17px;
+        left: 10px;
+    }
+    .modal-body-list .item-footer .item-footer-form .pledge {
+        width: 40px;
+        padding: 16px 0px 16px 20px;
+    }
+}
