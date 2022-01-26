@@ -404,7 +404,7 @@
     top: 0px;
     left: 0px;
     box-sizing: border-box;
-    z-index: 1;
+    z-index: 4;
 }
 .modal::-webkit-scrollbar {
     display: none;
@@ -417,7 +417,7 @@
     background: var(--white);
     position: relative;
     box-sizing: border-box;
-    z-index: 2;
+    z-index: 5;
 }
 .modal-container.small {
     padding: 50px 40px;
